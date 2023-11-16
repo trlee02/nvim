@@ -8,8 +8,15 @@ map('n', '<A-j>', ':m .+1<CR>==', opts)
 map('n', '<A-k>', ':m .-2<CR>==', opts)
 map('i', '<A-j>', '<Esc>:m .+1<CR>==gi', opts)
 map('i', '<A-k>', '<Esc>:m .-2<CR>==gi', opts)
-
 map('v', '<A-j>', ":m '>+1<CR>gv=gv", opts)
+
+map('n', 'k', 'gk', {noremap=true, silent = true})
+map('n', 'j', 'gj', {noremap=true, silent = true})
+map('v', 'k', 'gk', {noremap=true, silent = true})
+map('v', 'k', 'gk', {noremap=true, silent = true})
+map('o', 'j', 'gj', {noremap=true, silent = true})
+map('o', 'j', 'gj', {noremap=true, silent = true})
+
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'c',
   callback = function()

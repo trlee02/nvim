@@ -116,6 +116,15 @@ return require('packer').startup(function(use)
     -- tag = "*"
 }
 
+  use 'lervag/vimtex'
+
+  use {
+    'terrortylor/nvim-comment',
+    config = function()
+      require('nvim_comment').setup()
+    end
+  }
+
   use "folke/tokyonight.nvim"
   use "lukas-reineke/indent-blankline.nvim"
   use "github/copilot.vim"
