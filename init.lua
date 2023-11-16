@@ -52,6 +52,4 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
 })
 
 -- Set colorscheme
-vim.cmd 'colorscheme tokyonight-day'
-
-
+vim.cmd 'colorscheme tokyonight-night'
