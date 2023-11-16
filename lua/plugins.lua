@@ -2,6 +2,7 @@ local fn = vim.fn
 
 -- Automatically install packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+
 if fn.empty(fn.glob(install_path)) > 0 then
 	PACKER_BOOTSTRAP = fn.system({
 		"git",
@@ -58,12 +59,10 @@ return require('packer').startup(function(use)
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   -- Post-install/update hook with call of vimscript function with argument
-  use({
-    "glacambre/firenvim",
-    run = function() fn["firenvim#install"](0) end,
-    opt = true,
-    setup = [[vim.cmd('packadd firenvim')]],
-  })
+  use {
+      'glacambre/firenvim',
+      run = function() vim.fn['firenvim#install'](0) end 
+  }
 
   -- Use dependency and run lua function after load
   use {
@@ -107,6 +106,17 @@ return require('packer').startup(function(use)
     },
   }
 
+  use {
+    "danymat/neogen",
+    config = function()
+        require('neogen').setup {}
+    end,
+    requires = "nvim-treesitter/nvim-treesitter",
+    -- Uncomment next line if you want to follow only stable versions
+    -- tag = "*"
+}
+
   use "folke/tokyonight.nvim"
   use "lukas-reineke/indent-blankline.nvim"
+  use "github/copilot.vim"
 end)

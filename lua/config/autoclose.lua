@@ -11,7 +11,8 @@ local config = {
 
       ['"'] = { escape = true, close = true, pair = '""' },
       ["'"] = { escape = true, close = true, pair = "''" },
-      ["`"] = { escape = true, close = true, pair = "``" },
+      ["```"] = { escape = true, close = true, pair = "``````", enabled_filetypes = "markdown" },
+      ["`"] = { escape = true, close = true, pair = "``", enabled_filetypes = "markdown" },
    },
    options = {
       disabled_filetypes = { "text" },
