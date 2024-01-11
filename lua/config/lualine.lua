@@ -1,7 +1,6 @@
 -- Bubbles config for lualine
 -- Author: lokesh-krishna
 -- MIT license, see LICENSE for more details.
-
 -- stylua: ignore
 local colors = {
   blue   = '#80a0ff',
@@ -16,7 +15,7 @@ local colors = {
 
 require('lualine').setup {
   options = {
-    theme = 'palenight',
+    theme = 'fluoromachine',
     component_separators = '|',
     section_separators = { left = '', right = '' },
   },

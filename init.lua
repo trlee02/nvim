@@ -31,6 +31,7 @@ vim.opt.sts = 2
 vim.opt.tabstop = 2
 vim.opt.expandtab = true
 vim.opt.rnu = true
+vim.opt.nu = true
 vim.opt.ai = true
 vim.opt.si = true
 
@@ -59,4 +60,16 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
 })
 
 -- Set colorscheme
-vim.cmd 'colorscheme tokyonight-night'
+local function link_comment()
+  vim.api.nvim_set_hl(0, "@lsp.type.comment.c", { link = "Comment" })
+  vim.api.nvim_set_hl(0, "@lsp.type.comment.cpp", { link = "Comment" })
+end
+
+-- Add the lsp comment highlights now, and again later if we change colorschemes.
+link_comment()
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = link_comment,
+})
+
+vim.cmd.colorscheme('fluoromachine')
+vim.api.nvim_command('hi LineNr guifg=#B0B0B0')

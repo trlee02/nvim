@@ -76,16 +76,22 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  -- Icons
   use 'nvim-tree/nvim-web-devicons'
+
+  -- Tabline
   use 'romgrk/barbar.nvim'
 
+  -- LSP and completion
   use {'neoclide/coc.nvim', branch='release'}
 
+  -- Statusline
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt=true }
   }
 
+  -- Key mappings help
   use {
     "folke/which-key.nvim",
     config = function()
@@ -95,10 +101,12 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- For toggling terminal emulator
   use {"akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()
   end}
 
+  -- For file explorer
   use {
     'nvim-tree/nvim-tree.lua',
     requires = {
@@ -106,26 +114,38 @@ return require('packer').startup(function(use)
     },
   }
 
+  -- For writing LaTeX
+  use 'lervag/vimtex'
+
+  -- For commenting out lines or blocks of code
+  use {
+      'numToStr/Comment.nvim',
+      config = function()
+          require('Comment').setup()
+      end
+  }
+
+  -- For generating docstrings
   use {
     "danymat/neogen",
     config = function()
-        require('neogen').setup {}
-    end,
-    requires = "nvim-treesitter/nvim-treesitter",
-    -- Uncomment next line if you want to follow only stable versions
-    -- tag = "*"
-}
-
-  use 'lervag/vimtex'
-
-  use {
-    'terrortylor/nvim-comment',
-    config = function()
-      require('nvim_comment').setup()
+      require("neogen").setup {
+        enabled = true
+      }
     end
   }
 
+  -- For searching and substituting in files
+  use "wincent/ferret"
+
+  -- For searching and replacing in files
+  use "windwp/nvim-spectre"
+  use "nvim-lua/plenary.nvim"
+
+  use "preservim/vim-markdown"
+
   use "folke/tokyonight.nvim"
+  use "maxmx03/fluoromachine.nvim"
   use "lukas-reineke/indent-blankline.nvim"
   use "github/copilot.vim"
 end)
