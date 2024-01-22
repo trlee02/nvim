@@ -71,5 +71,4 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   callback = link_comment,
 })
 
-vim.cmd.colorscheme('fluoromachine')
 vim.api.nvim_command('hi LineNr guifg=#B0B0B0')
