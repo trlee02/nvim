@@ -52,17 +52,8 @@ return require('packer').startup(function(use)
   -- Load on an autocommand event
   use {'andymass/vim-matchup', event = 'VimEnter'}
 
-  -- Plugins can have post-install/update hooks
-  use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install', cmd = 'MarkdownPreview'}
-
   -- Post-install/update hook with neovim command
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-
-  -- Post-install/update hook with call of vimscript function with argument
-  use {
-      'glacambre/firenvim',
-      run = function() vim.fn['firenvim#install'](0) end 
-  }
 
   -- Use dependency and run lua function after load
   use {
@@ -142,9 +133,22 @@ return require('packer').startup(function(use)
   use "windwp/nvim-spectre"
   use "nvim-lua/plenary.nvim"
 
-  use "preservim/vim-markdown"
+  -- For context-sensitive color name highlighting
+  use "norcalli/nvim-colorizer.lua"
 
-  use "folke/tokyonight.nvim"
+  use({
+    "roobert/tailwindcss-colorizer-cmp.nvim",
+    -- optionally, override the default options:
+    config = function()
+      require("tailwindcss-colorizer-cmp").setup({
+        color_square_width = 2,
+      })
+    end
+  })
+
+  -- Syntax highlighting for markdown
+  use "tpope/vim-markdown"
+
   use "maxmx03/fluoromachine.nvim"
   use "lukas-reineke/indent-blankline.nvim"
   use "github/copilot.vim"
