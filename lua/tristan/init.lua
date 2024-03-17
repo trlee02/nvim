@@ -1,2 +1,2 @@
 require("tristan.remap")
-print("hello")
+require("tristan.set")
