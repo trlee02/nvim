@@ -15,5 +15,6 @@ return require('packer').startup(function(use)
 			vim.cmd('colorscheme fluoromachine')
 		end
 	})
-	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+	ouse('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+	use('ThePrimeagen/harpoon')
 end)
