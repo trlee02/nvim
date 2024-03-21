@@ -1,4 +1,4 @@
-function ColorMyPencils(color)
+function ColorMyPencils()
     local fm = require 'fluoromachine'
 
     fm.setup {
