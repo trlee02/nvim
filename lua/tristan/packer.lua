@@ -53,4 +53,5 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
     use('github/copilot.vim')
+    use('danymat/neogen')
 end)
