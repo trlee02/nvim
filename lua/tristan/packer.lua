@@ -54,4 +54,5 @@ return require('packer').startup(function(use)
     }
     use('github/copilot.vim')
     use('danymat/neogen')
+    use('lervag/vimtex')
 end)
