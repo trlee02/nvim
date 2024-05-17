@@ -3,7 +3,7 @@ Heavily based on theprimeagen's configuration.
 
 ## Setup
 ### 1. Install NeoVim
-To install on my personal I use [homebrew](https://docs.brew.sh/Homebrew-on-Linux) or on remote systems by [building from source]([url](https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-source)) 
+To install on my personal devices I use [homebrew](https://docs.brew.sh/Homebrew-on-Linux) or on remote systems by [building from source]([url](https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-source)).
 
 ### 2. Create `nvim` directory and install dependencies
 Create a new directory in `~/.config` called `nvim`. This is the home of all of the neovim configuration files.
