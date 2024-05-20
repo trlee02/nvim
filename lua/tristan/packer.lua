@@ -56,4 +56,8 @@ return require('packer').startup(function(use)
     use('danymat/neogen')
     use('lervag/vimtex')
     use('ThePrimeagen/vim-be-good')
+    use {
+        'norcalli/nvim-colorizer.lua',
+        require('colorizer').setup()
+    }
 end)
