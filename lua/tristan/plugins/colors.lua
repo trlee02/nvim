@@ -1,11 +1,4 @@
 function ColorMyPencils()
-    local fm = require 'fluoromachine'
-
-    fm.setup {
-        glow = false,
-        theme = 'fluoromachine',
-        transparent = 'full',
-    }
 
     vim.cmd.colorscheme('fluoromachine')
 
@@ -19,6 +12,23 @@ function ColorMyPencils()
     vim.api.nvim_set_hl(0, 'IncSearch', { fg = normalFg, bg = normalBg, underline = true, bold = true })
 end
 
-ColorMyPencils()
+return {
+    {
+        'maxmx03/fluoromachine.nvim',
+        name = 'fluoromachine',
+        config = function()
+            require('fluoromachine').setup ({
+                glow = false,
+                theme = 'fluoromachine',
+                transparent = 'full',
+            })
+
+            vim.cmd('colorscheme fluoromachine')
+
+            ColorMyPencils()
+        end
+    }
+}
+
 
 
