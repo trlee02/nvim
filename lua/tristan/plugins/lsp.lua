@@ -29,7 +29,7 @@ return {
                     "--background-index",
                 },
             },
-            lua = {
+            lua_ls = {
                 settings = {
                     Lua = {
                         runtime = { version = "Lua 5.1" },
