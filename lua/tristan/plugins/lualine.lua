@@ -1,6 +1,9 @@
 return {
     'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = {
+        'nvim-tree/nvim-web-devicons',
+        'AndreM222/copilot-lualine',
+    },
 
     config = function ()
         require('lualine').setup {
@@ -15,7 +18,12 @@ return {
                 },
                 lualine_b = { 'filename', 'branch' },
                 lualine_c = { 'fileformat' },
-                lualine_x = {},
+                lualine_x = {
+                    {
+                        'copilot',
+                        show_colors = true
+                    }
+                },
                 lualine_y = { 'filetype', 'progress' },
                 lualine_z = {
                     { 'location', separator = { right = '' }, left_padding = 2 },

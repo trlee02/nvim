@@ -12,6 +12,7 @@ return {
         "saadparwaiz1/cmp_luasnip",
         "j-hui/fidget.nvim",
         "folke/neodev.nvim",
+        "nvimtools/none-ls.nvim"
     },
 
     config = function()
@@ -42,6 +43,18 @@ return {
         }
 
         require("fidget").setup({})
+        local null_ls = require('null-ls')
+        null_ls.setup({
+            sources = {
+                null_ls.builtins.formatting.black.with({
+                    extra_args = { "--line-length=80" }
+                }),
+            }
+
+        })
+
+
+        vim.keymap.set({"n"}, "<leader>f", '<cmd>lua vim.lsp.buf.format()<CR>')
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = vim.tbl_keys(servers),
@@ -81,10 +94,12 @@ return {
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' }, -- For luasnip users.
+                { name = 'path'},
             }, {
                 { name = 'buffer' },
             })
         })
+
 
         vim.diagnostic.config({
             -- update_in_insert = true,
