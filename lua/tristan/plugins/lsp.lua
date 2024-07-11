@@ -65,6 +65,7 @@ return {
                 null_ls.builtins.formatting.black.with({
                     extra_args = { "--line-length=80" }
                 }),
+                null_ls.builtins.formatting.uncrustify,
             }
 
         })

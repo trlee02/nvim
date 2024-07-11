@@ -15,7 +15,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- places item replaced by register into void register
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- system clipboard
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
