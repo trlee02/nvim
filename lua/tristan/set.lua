@@ -28,3 +28,4 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
+vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'

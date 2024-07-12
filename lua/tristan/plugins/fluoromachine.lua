@@ -1,4 +1,3 @@
-
 return {
     {
         'maxmx03/fluoromachine.nvim',
@@ -10,7 +9,7 @@ return {
                 transparent = 'full',
             })
 
-            vim.cmd.colorscheme('fluoromachine')
+            vim.cmd('colorscheme fluoromachine')
         end
     }
 }
