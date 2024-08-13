@@ -62,22 +62,19 @@ return {
         local null_ls = require('null-ls')
         null_ls.setup({
             sources = {
-                null_ls.builtins.formatting.black.with({
-                    extra_args = { "--line-length=80" }
-                }),
+                null_ls.builtins.formatting.black,
                 null_ls.builtins.formatting.uncrustify,
             }
 
         })
 
 
-        vim.keymap.set({"n"}, "<leader>f", '<cmd>lua vim.lsp.buf.format()<CR>')
+        vim.keymap.set({ "n" }, "<leader>f", '<cmd>lua vim.lsp.buf.format()<CR>')
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = vim.tbl_keys(servers),
             handlers = {
-                 function(server_name) -- default handler (optional)
-
+                function(server_name)  -- default handler (optional)
                     require("lspconfig")[server_name].setup {
                         capabilities = capabilities
                     }
@@ -90,7 +87,7 @@ return {
                 end,
             }
         })
-        local cmp_select = {behavior = cmp.SelectBehavior.Select}
+        local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
         -- this is the function that loads the extra snippets to luasnip
         -- from rafamadriz/friendly-snippets
@@ -111,7 +108,7 @@ return {
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' }, -- For luasnip users.
-                { name = 'path'},
+                { name = 'path' },
             }, {
                 { name = 'buffer' },
             })
