@@ -55,7 +55,8 @@ return {
                         },
                     },
                 },
-            }
+            },
+            pyright = {}
         }
 
         require("fidget").setup({})
