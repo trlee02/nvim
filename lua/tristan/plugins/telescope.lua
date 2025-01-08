@@ -1,5 +1,7 @@
 return {
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    -- cd ~/.local/share/nvim/lazy/telescope-fzf-native.nvim && make && cd -
+    -- run the above if there are issues with the the telescope-fzf-native
     {
         'nvim-telescope/telescope.nvim',
 
