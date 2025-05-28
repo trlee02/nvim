@@ -5,9 +5,8 @@ return {
     config = function ()
         require("nvim-treesitter.configs").setup({
             ensure_installed = {
-                "c", "lua", "vim", "vimdoc", "query", "bash",
+                "c", "lua", "vim", "vimdoc", "query", "bash", "latex"
             },
-            disable = { "latex" },
 
             sync_install = false,
 

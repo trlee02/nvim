@@ -31,6 +31,12 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
+-- opern terminal
+vim.api.nvim_create_autocmd("TermOpen", {
+	command = "setlocal nonumber norelativenumber nospell",
+})
+vim.keymap.set('n', '<leader>t', ':botright split | resize 10 | terminal<CR>')
+
 
 
 
