@@ -1,5 +1,6 @@
 return {
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    { 'nvim-telescope/telescope-ui-select.nvim' },
     -- cd ~/.local/share/nvim/lazy/telescope-fzf-native.nvim && make && cd -
     -- run the above if there are issues with the the telescope-fzf-native
     {
@@ -13,6 +14,7 @@ return {
             local telescope = require('telescope')
             telescope.setup({})
             telescope.load_extension('fzf')
+            telescope.load_extension('ui-select')
 
             local builtin = require('telescope.builtin')
 
