@@ -17,7 +17,6 @@ return {
 
     config = function()
         local cmp = require('cmp')
-        local cmp_lsp = require("cmp_nvim_lsp")
 
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
@@ -56,9 +55,9 @@ return {
                     },
                 },
             },
-            pyright = {}
         }
 
+        -- auto formatting
         require("fidget").setup({})
         local null_ls = require('null-ls')
         null_ls.setup({
@@ -66,11 +65,9 @@ return {
                 null_ls.builtins.formatting.black,
                 null_ls.builtins.formatting.uncrustify,
             }
-
         })
 
 
-        vim.keymap.set({ "n" }, "<leader>f", '<cmd>lua vim.lsp.buf.format()<CR>')
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = vim.tbl_keys(servers),
@@ -103,8 +100,8 @@ return {
             mapping = cmp.mapping.preset.insert({
                 ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
                 ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-                ['<C-i>'] = cmp.mapping.confirm({ select = true }),
-                ["<C-Space>"] = cmp.mapping.complete(),
+                ['<C-i>'] = cmp.mapping.confirm({ select = true }), -- actually perfom the completion
+                ["<C-Space>"] = cmp.mapping.complete(), -- show completions
             }),
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
@@ -141,6 +138,7 @@ return {
                 vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, {desc="Show signature help in a floating window", buffer=e.buf})
                 vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, {desc="Go to next diagnostic", buffer=e.buf})
                 vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, {desc="Go to previous diagnostic", buffer=e.buf})
+                vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end, {desc="Format entire file", buffer=e.buf})
             end
         })
     end
